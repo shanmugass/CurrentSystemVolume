@@ -39,9 +39,11 @@ namespace CurrentSystemVolume
                                 using (var audioMeterInformation = session.QueryInterface<AudioMeterInformation>())
                                 {
                                     var audioPeek = audioMeterInformation.GetPeakValue();
-
-                                    Console.WriteLine(audioPeek);
-                                    allPeekValues.Add(audioPeek);
+                                    if (audioPeek > 0)
+                                    {
+                                        Console.WriteLine(audioPeek);
+                                        allPeekValues.Add(audioPeek);
+                                    }
                                 }
 
                                 Thread.Sleep(1000);
