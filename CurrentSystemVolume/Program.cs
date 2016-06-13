@@ -27,7 +27,6 @@ namespace CurrentSystemVolume
 
             try
             {
-
                 using (var sessionManager = GetDefaultAudioSessionManager2(DataFlow.Render))
                 {
                     using (var sessionEnumerator = sessionManager.GetSessionEnumerator())
@@ -57,8 +56,6 @@ namespace CurrentSystemVolume
                         }
                     }
                 }
-
-
                 if (allPeekValues.Any())
                 {
                     Console.WriteLine("Maximum Peek: " + allPeekValues.Max());
@@ -72,9 +69,7 @@ namespace CurrentSystemVolume
             catch (Exception exception)
             {
                 Console.Write("Unexpected error occured. Might be no audio device configured in your system." + exception.Message);
-            }
-
-            Console.ReadKey();
+            }            
         }
 
         private static AudioSessionManager2 GetDefaultAudioSessionManager2(DataFlow dataFlow)
