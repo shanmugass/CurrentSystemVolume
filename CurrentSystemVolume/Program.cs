@@ -32,8 +32,9 @@ namespace CurrentSystemVolume
                 {
                     using (var sessionEnumerator = sessionManager.GetSessionEnumerator())
                     {
-                        for (int i = 0; i < noOfSecondsToWatch; i++)
+                        for (int i = 0; i < noOfSecondsToWatch*2; i++)
                         {
+                            bool hasPeek = false;
                             foreach (var session in sessionEnumerator)
                             {
                                 using (var audioMeterInformation = session.QueryInterface<AudioMeterInformation>())
@@ -43,10 +44,15 @@ namespace CurrentSystemVolume
                                     {
                                         Console.WriteLine(audioPeek);
                                         allPeekValues.Add(audioPeek);
+                                        hasPeek = true;
                                     }
                                 }
+                                Thread.Sleep(500);
+                            }
 
-                                Thread.Sleep(1000);
+                            if (!hasPeek)
+                            {
+                                Console.WriteLine(0);
                             }
                         }
                     }
