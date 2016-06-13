@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CurrentSystemVolume.zip" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSCore\CSCore.dll" />
